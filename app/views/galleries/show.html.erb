@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gallery.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gallery.description %>
+</p>
+
+
+<% unless @gallery.pictures.empty? %>
+    <% @gallery.pictures.each do |pic| %>
+        <%= link_to pic.image.url(:original), :target => "_blank" do %>
+            <%= image_tag pic.image.url(:medium) %>
+        <% end %>
+        <p>
+            <%= link_to "Edit picture", picture_path(pic) %>
+            <%= link_to "Delete picture", pic, :data => { :confirm => "Are you sure?" },
+                :method => :delete %>
+        </p>
+    <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>
