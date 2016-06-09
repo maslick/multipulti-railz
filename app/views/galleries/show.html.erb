@@ -12,17 +12,23 @@
 
 
 <% unless @gallery.pictures.empty? %>
+    <table>
+    <tbody>
+    <tr>
     <% @gallery.pictures.each do |pic| %>
-        <%= link_to pic.image.url(:original), :target => "_blank" do %>
-            <%= image_tag pic.image.url(:medium) %>
-        <% end %>
-        <p>
-            <%= link_to "Edit picture", picture_path(pic) %>
-            <%= link_to "Delete picture", pic, :data => { :confirm => "Are you sure?" },
-                :method => :delete %>
-        </p>
+        <td>
+            <%= link_to pic.image.url(:original), :target => "_blank" do %>
+                <%= image_tag pic.image.url(:thumb) %>
+            <% end %>
+        </td>
     <% end %>
+    </tr>
+    </tbody>
+    </table>
 <% end %>
+
+
+<p>&nbsp;</p>
 
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>

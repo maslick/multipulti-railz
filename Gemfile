@@ -26,3 +26,4 @@ end
 
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'

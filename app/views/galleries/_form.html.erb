@@ -12,6 +12,18 @@
     </div>
   </div>
 
+  <% unless @gallery.pictures.empty? %>
+      <% @gallery.pictures.each do |pic| %>
+          <figure>
+              <%= image_tag pic.image.url(:thumb) %>
+              <figcaption>
+                  <%= link_to 'Edit', edit_picture_path(pic) %>
+                  <%= link_to "Delete picture", pic, :data => { :confirm => "Are you sure?" }, :method => :delete %>
+              </figcaption>
+          </figure>
+      <% end %>
+  <% end %>
+
   <div class="control-group">
     <%= f.label :pictures, :class => 'control-label' %>
     <div class="controls">

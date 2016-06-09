@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Pictures</h1>
-
+<%= link_to 'Back to gallery', galleries_path %>
 <table>
   <thead>
     <tr>
@@ -15,7 +15,7 @@
     <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.description %></td>
-        <td><%= picture.image %></td>
+        <td><%= image_tag picture.image.url(:thumb) %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
